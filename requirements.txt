@@ -10,4 +10,5 @@ streamlit
 numpy
 pillow
 pandas
+huggingface_hub
 ipykernel

@@ -12,6 +12,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00F5FF?style=for-the-badge)](LICENSE)
+[![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-pawvision--cnn--model-yellow?style=for-the-badge)](https://huggingface.co/vinayk2005/pawvision-cnn-model)
 
 <br/>
 
@@ -172,14 +173,11 @@ source venv/bin/activate
 
 ### 3. Install Dependencies
 ```bash
-pip install streamlit tensorflow numpy pillow opencv-python matplotlib
+pip install streamlit tensorflow keras huggingface_hub numpy pillow opencv-python matplotlib
 ```
 
-### 4. Ensure Model File Exists
-Place your trained `dog_cat_cnn.keras` model inside the `models/` directory:
-```
-models/dog_cat_cnn.keras
-```
+### 4. Automatic Model Download (Hugging Face)
+PawVision AI automatically downloads and caches the model directly from [vinayk2005/pawvision-cnn-model](https://huggingface.co/vinayk2005/pawvision-cnn-model). You can also place an offline copy in `models/dog_cat_cnn.keras` as a fallback.
 
 ### 5. Launch the Streamlit App
 ```bash

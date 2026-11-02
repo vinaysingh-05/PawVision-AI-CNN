@@ -1,3 +1,16 @@
+# Models & trained weights
+models/
+*.keras
+*.h5
+
+# Zip archives & large datasets
+*.zip
+dogsvscats.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -38,17 +51,6 @@ venv.bak/
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
-# Large dataset archives & model weights (>100MB exceeds GitHub hard limit)
-*.zip
-*.tar.gz
-*.tgz
-*.rar
-*.7z
-models/*.keras
-models/*.h5
-*.keras
-*.h5
-
 # Streamlit local settings & secrets
 .streamlit/secrets.toml
 
@@ -67,3 +69,6 @@ models/*.h5
 ehthumbs.db
 Thumbs.db
 
+models/*.keras
+
+models/*.h5

@@ -1,8 +1,13 @@
+import os
+os.environ["KERAS_BACKEND"] = "tensorflow"
+
 import streamlit as st
+import keras
 import tensorflow as tf
 import numpy as np
 from PIL import Image
 import time
+from huggingface_hub import hf_hub_download
 
 # ==========================================
 # PAGE CONFIGURATION
@@ -201,11 +206,20 @@ header[data-testid="stHeader"] {
 
 @st.cache_resource
 def load_model():
-    import os
-    model_path = os.path.join(os.path.dirname(__file__), "models", "dog_cat_cnn.keras")
-    if not os.path.exists(model_path):
-        model_path = os.path.join("models", "dog_cat_cnn.keras")
-    return tf.keras.models.load_model(model_path)
+    try:
+        model_path = hf_hub_download(
+            repo_id="vinayk2005/pawvision-cnn-model",
+            filename="dog_cat_cnn.keras"
+        )
+        return keras.saving.load_model(model_path)
+    except Exception:
+        try:
+            return keras.saving.load_model("hf://vinayk2005/pawvision-cnn-model")
+        except Exception:
+            local_path = os.path.join(os.path.dirname(__file__), "models", "dog_cat_cnn.keras")
+            if not os.path.exists(local_path):
+                local_path = os.path.join("models", "dog_cat_cnn.keras")
+            return keras.saving.load_model(local_path)
 
 try:
     model = load_model()
